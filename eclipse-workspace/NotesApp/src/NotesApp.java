@@ -8,7 +8,7 @@ public class NotesApp {
         Scanner sc = new Scanner(System.in);
         int choice;
 
-        System.out.println("📒 Welcome to Notes Manager!");
+        System.out.println(" Welcome to Notes Manager!");
         
         do {
             System.out.println("\nChoose an option:");
@@ -40,31 +40,31 @@ public class NotesApp {
         sc.close();
     }
 
-    // Method to add note
+    
     private static void addNote(String note) {
         try (FileWriter fw = new FileWriter(FILE_NAME, true); // append mode
              BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(note);
             bw.newLine();
-            System.out.println("✅ Note saved successfully.");
+            System.out.println("Note saved successfully.");
         } catch (IOException e) {
-            System.out.println("❌ Error while saving note: " + e.getMessage());
+            System.out.println(" Error while saving note: " + e.getMessage());
         }
     }
 
-    // Method to view notes
+    
     private static void viewNotes() {
         try (FileReader fr = new FileReader(FILE_NAME);
              BufferedReader br = new BufferedReader(fr)) {
             String line;
-            System.out.println("\n📄 Your Notes:");
+            System.out.println("\n Your Notes:");
             while ((line = br.readLine()) != null) {
                 System.out.println("- " + line);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("⚠️ No notes found. Add some first!");
+            System.out.println(" No notes found. Add some first!");
         } catch (IOException e) {
-            System.out.println("❌ Error while reading notes: " + e.getMessage());
+            System.out.println(" Error while reading notes: " + e.getMessage());
         }
     }
 }
